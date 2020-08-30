@@ -1,35 +1,54 @@
 <h1>Home Admin</h1>
 <div class="ui grid relaxed">
-  <div class="three column row">
+  <div style={width:600px}>
+    <h1>Appointments</h1>
+    <table class="ui celled table">
+  <thead>
+    <tr>
+    <th>Doctor</th>
+    <th>Patient</th>
+    <th>Condition</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%@appointments.each do |appt|%>
+    <tr>
+      <td data-label="Doctor"><%= appt.doctor.name%></td>
+      <td data-label="Patient"><%=appt.patient.name%></td>
+      <td data-label="Condition"><%=appt.patient.condition%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+  </div>
+  <div class="two column row">
     <div class="column segment v-box">
       <h1>Doctors</h1>
-      <div class="ui middle aligned animated list">
-      <% @doctors.each do |doctor|%>
-    <div class="item">
-    <img class="ui avatar image" src="https://cdn1.iconfinder.com/data/icons/photography-2/512/YPS__human_avatar_portrait_photography_picture_photo-512.png">
-    <div class="content">
-      <div class="header"><%= doctor.name%></div>
-       <%= doctor.ocupation%>
-      </div>
-    </div>
-    <%end%>
-  </div>
-</div>
+       <div class="ui middle aligned animated list">
+        <% @doctors.each do |doctor|%>
+          <div class="item">
+            <img class="ui avatar image" src="https://cdn1.iconfinder.com/data/icons/photography-2/512/YPS__human_avatar_portrait_photography_picture_photo-512.png">
+            <div class="content">
+              <div class="header"><%= doctor.name%></div>
+              <%= doctor.ocupation%>
+              </div>
+            </div>
+            <%end%>
+          </div>
+        </div>
     <div class="column segment v-box">
-    <h1>Patients</h1>
-    <div class="ui middle aligned animated list">
-      <% @patients.each do |patient|%>
-    <div class="item">
-    <img class="ui avatar image" src="https://cdn1.iconfinder.com/data/icons/photography-2/512/YPS__human_avatar_portrait_photography_picture_photo-512.png">
-    <div class="content">
-      <div class="header"><%= patient.name%></div>
-       <%= patient.condition%>
-      </div>
+      <h1>Patients</h1>
+        <div class="ui middle aligned animated list">
+          <% @patients.each do |patient|%>
+            <div class="item">
+            <img class="ui avatar image" src="https://cdn1.iconfinder.com/data/icons/photography-2/512/YPS__human_avatar_portrait_photography_picture_photo-512.png">
+              <div class="content">
+                <div class="header"><%= patient.name%></div>
+                <%= patient.condition%>
+              </div>
+            </div>
+            <%end%>
+          </div>
+        </div>
     </div>
-    <%end%>
-    </div>
-    </div>
-    <div class="column segment v-box">
-    <h1>Appointments</h1>
-    </div>
-  </div>
+   
