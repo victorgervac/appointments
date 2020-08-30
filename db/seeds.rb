@@ -6,19 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-
-5.times do 
+condition =["covid","toothache","brokenbone","earpain"]
+10.times do 
     doctor = Doctor.create(
         name: Faker::Name.name,
-        ocupation: Faker::TvShows::DrWho.the_doctor
+        ocupation: condition.sample
     )
-end
-5.times do 
     patient = Patient.create(
         name: Faker::TvShows::Seinfeld.character,
-        condition: Faker::ProgrammingLanguage.name
-
-        )
-
+        condition: condition.sample
+    )
+        if doctor.ocupation == patient.condition
+            Appointment.create(doctor_id: doctor.id, patient_id: patient.id)
+        end
 end
 
+puts "seed"
