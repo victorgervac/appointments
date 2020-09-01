@@ -27,6 +27,6 @@ class PatientController < ApplicationController
     @patient = Patients.find(params[:id])
   end
   def patient_params
-    params.requiere(:patient).permit(:name, :condition)
+    params.requiere(:patient).permit(:name)
   end
 end

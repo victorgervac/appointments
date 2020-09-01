@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: [:show, :destroy]
+  before_action :set_doctor, only: [:show, :destroy, :create, :edit]
 
   def index
       @doctors = Doctor.all
@@ -8,6 +8,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
+    @doctors = Doctor.all
   end
 
   def new
@@ -23,6 +24,7 @@ class DoctorsController < ApplicationController
   end
 
   def edit
+
   end
   def destroy 
     @doctor.destroy
@@ -36,6 +38,6 @@ class DoctorsController < ApplicationController
   end
   
   def doctor_params
-    params.requiere(:doctor).permit(:name, :ocupation)
+    params.require(:doctor).permit(:name, :ocupation)
 end
 end

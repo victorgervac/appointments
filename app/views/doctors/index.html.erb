@@ -31,6 +31,8 @@
             <div class="content">
               <div class="header"><%= doctor.name%></div>
               <%= doctor.ocupation%>
+              <br/>
+              <%= link_to "View", doctor_path(doctor) %>
               </div>
             </div>
             <%end%>
@@ -45,6 +47,8 @@
               <div class="content">
                 <div class="header"><%= patient.name%></div>
                 <%= patient.condition%>
+                <br/>
+                  <%= link_to "View", patient_path(patient)%>
               </div>
             </div>
             <%end%>
